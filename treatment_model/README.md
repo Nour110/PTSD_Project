@@ -1,6 +1,7 @@
 # Description #
 
 This is a simple agent based model of the treatment of PTSD.
+The model is a very idealistic model of the treatment. It simulates people looking for and receiving treatment for PTSD. The model will run for 104 weeks. Patients who are in treatment will go to a session of therapy every week.
 
 # Running the model #
 To run the model:
@@ -11,7 +12,7 @@ To run the model:
 
 # Assumptions made for the model #
 
-These are the assumptions of our model:
+These are the assumptions of the model:
 
 
 First, and probably most importantly, we will not consider the risk for revictimization and retraumatization. Additionally, PTSD can be totally debilitating but we will assume that every person in our model has the capacity to adhere to treatment if they choose to. We will not consider comorbidities.
@@ -48,10 +49,25 @@ We will not track employment but rather if the person is able to maintain employ
 1) For those who have mild PTSD, we will assume that they all can hold a job.
 2) For those with moderate PTSD, we will assume that 60% of them cannot hold a job and 40% can hold a job.
 3) For those with severe PTSD, we will assume that 80% are not employable/cannot hold a job
-==> Given a sample of 100 people, this would mean that we expect 49 of them to be unable to hold a job, which is lower than the statistic above that says 2/3 of people with PTSD are unemployed. Of course these two things do not equate as we are not talking about actual employment in our model.
+==> Given a sample of 100 people, this would mean that we expect 49 of them to be unable to hold a job. We will assume that if someone is employable then they are immediately employed for simplicity.
 
 
 Each person will start with savings. These amount will be random with a minimum of 10,000 and a maximum of 100,000.
 We assume that if a person is employable then they will not spend their savings to live or seek treatment.
 If a person is not employable then they will incur a weekly cost of living and if they are in treatment then they will have to pay for each session. If a person cannot pay for a session then they will drop out. If they have no savings left and are still not employable then they will be considered homeless.
+
+These assumptions were made by referencing some established researched on the subject. Additionally, I've decided to exclude psychiatric treatment for PTSD as its effects seem to be very mild.
+If you'd like to learn more then I've included some of the material below.
+
+https://www.mountsinai.org/about/newsroom/2014/unemployment-biggest-predictor-of-ptsd-symptom-severity
+https://iamresearch.org/how-does-ptsd-affect-employability/
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7144189/ 
+https://www.nimh.nih.gov/health/statistics/post-traumatic-stress-disorder-ptsd
+https://www.uptodate.com/contents/approach-to-treating-posttraumatic-stress-disorder-in-adults
+http://file.lacounty.gov/SDSInter/dmh/1060782_LACPEITF-CBTAggregateReportJuly2012.pdf
+https://www.ncchildtreatmentprogram.org/impact/tf-cbt-cohort-14/ucla-posttraumatic-stress-disorder-reaction-index-for-dsm-5-ptsd-ri-child-adolescent-version/
+https://pubmed.ncbi.nlm.nih.gov/24681171/#:~:text=Remission%20varied%20between%208%20and,than%20five%20months%20following%20trauma.
+https://www.uptodate.com/contents/posttraumatic-stress-disorder-in-adults-epidemiology-pathophysiology-clinical-manifestations-course-assessment-and-diagnosis
+https://psycnet.apa.org/fulltext/2019-01033-009.html
+
 
