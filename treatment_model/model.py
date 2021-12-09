@@ -2,22 +2,30 @@ import numpy as np
 import scipy
 from scipy import stats
 
-# We begin by defining a very basic random variable
+# these are the random variables that will be used throughout the model.
 
+# random variable to determine severity of each agent
 sk = np.arange(1,4)
 s_pk = (.332,.302,.366)
 severity_rv = stats.rv_discrete(name = 'severity_rv',values = (sk,s_pk))
 
+
+# random variable to determine if the person drops out of treatment in a given week
 dk = np.arange(2)
 d_pk = (0.9928,0.0072)
 dropout_rv = stats.rv_discrete(name = 'dropout_rv',values=(dk,d_pk))
 
+
+# random variable to determine if someone improves from treatment or not
 improvement_rv = stats.rv_discrete(name = 'imrpovement_rv', values = (dk, (0.695,0.305)))
 
+# random variable to determine the degree to which the person imrpoves after treatment is complete
 ck = np.arange(1,4)
 change_rv = stats.rv_discrete(name = 'change_rv',values = (ck,(0.75,0.20,.05)))
 
 # functions utilised to update agent parameters
+
+
 def therapy_session(weeks,severity):
     drop_out = dropout_rv.rvs(size=1)[0]
     if drop_out == 1:
@@ -167,7 +175,8 @@ class PTSD_model(Model):
         for i in range(self.num_patients):
             patient = PTSD_patient(i,self)
             self.schedule.add(patient)
-            
+
+        # datacollector object to create visualization    
         self.datacollector = DataCollector(
             model_reporters = {"Open Therapy Slots":lambda m: m.num_open_slot_therapist,
                                "People with PTSD": lambda m: m.num_patients,
@@ -185,15 +194,15 @@ class PTSD_model(Model):
                                "Percentage of people who are not employable": lambda m: round(((len([1 for a in m.schedule.agents if a.employable == False])/m.num_patients)*100),2)
                                }
             )
+        # collect initial state of the model and agents
         self.datacollector.collect(self)
     def step(self):
         """
         Advance the model by one step
         """
-        
         self.schedule.step()
         self.week += 1
         self.datacollector.collect(self)
-        if self.week == 60:
+        if self.week == 104:
             self.running = False
 
