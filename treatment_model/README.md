@@ -2,13 +2,21 @@
 
 This is a simple agent based model of the treatment of PTSD.
 The model is a very idealistic model of the treatment. It simulates people looking for and receiving treatment for PTSD. The model will run for 104 weeks. Patients who are in treatment will go to a session of therapy every week.
+The model will visualize certain attributes of the patients. You'll see a bar graph of the number of people who have accessed treatment and those who have not. Next, there will be a chart which will graph three things:
+1) The percentage of people who have dropped out of treatment.
+2) The percentage of people who have achieved remission
+3) The percentage of people who have lost their housing
+There will then be a bar graph that will illustrate the people's current severity of illness. Finally there will be a chart with two graphs, the first being the percentage of people who are employable and second, the percentage of people who are not employable.
 
 # Running the model #
+
 To run the model:
 1) run the command `mesa runserver` in the directory of the model.
 2) Open https://127.0.0.1:8521/ in your browser
 3) Set your desired parameters and hit the Reset button then Run.
 
+Using the default parameters would mean that you have 1 trained psychotherapist per 50 patients with PTSD.
+Realistically, if we look at the US alone, the estimated one year prevalence is according to low estimates 3.5%. Currently, there are about 106 000 practicing psychotherapists who are not necessarily trained to treat PTSD but assuming that they all were able to then we would have 1 trained psychotherapist per 100 people with PTSD.
 
 # Assumptions made for the model #
 

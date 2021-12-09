@@ -33,9 +33,9 @@ chart2 = ChartModule(series = [{"Label":"Percentage of people who are employable
 t4 = text1("Second graph. All values are a percentage of the total number of people(agents).")
 
 model_params={
-	"patient_N": UserSettableParameter("number","Number of People with PTSD",value = 10000),
-	"psycho_N": UserSettableParameter("number","Number of Therapists trained to treat PTSD",value =200),
-	"session_cost": UserSettableParameter("number","How much will a patient pay for a each session", value = 100),
+	"patient_N": UserSettableParameter("number","Number of People with PTSD",value = 15000),
+	"psycho_N": UserSettableParameter("number","Number of Therapists trained to treat PTSD",value =300),
+	"session_cost": UserSettableParameter("number","How much will a patient pay for a each session", value = 75),
 	"expenses": UserSettableParameter("number","What is the weekly cost of living and renting in the area",value = 250)
 }
 
